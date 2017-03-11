@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //let 可以和var一样，用来定义变量的。
+
+        // var name = '张三';
+        // console.log(name);
+        //
+        // let name2 = '李四';
+        // console.log(name2);
+
+
+        // let 是没有预解析(变量提升)的!!!
+
+        // console.log(p1);   // undefined   这是因为var 是有预解析(变量提升)的
+        // var p1 = 'xixi';
+        //
+        //
+        // console.log(p2);   // 会报错。   p2 is not defined
+        // let p2 = 'haha';
+
+
+        // var p1 = '锄禾';
+        // {
+        //     var p1 = '当午'
+        // };
+        //
+        // console.log(p1);   // 当午
+        //
+        // //es6以前只有全局作用域和函数作用域,
+        // // es6 里面有一个块级作用域(let/ const)
+        //
+        // let p2 = '古诗';
+        // {
+        //     let p2 = '静夜思';  //是一个块级作用域，外部是拿不到的。
+        //     console.log(p2);  // 它是可以拿到当前块级作用域的P2
+        // };
+        // console.log(p2);   // 只能拿到全局作用域的p2 ----> 古诗
+
+
+
+        // var arr = [];
+        // for(var i=0;i<5;i++){
+        //     (function(i){
+        //         arr.push(function(){
+        //             console.log(i);
+        //         })
+        //     })(i);
+        // };
+        //
+        // arr[2]();    //5
+
+        // var arr = [];
+        // for(let i=0;i<5;i++){
+        //     arr.push(function(){
+        //         console.log(i);
+        //     })
+        // };
+        //
+        // arr[2]();  //2
+
+
+
+    </script>
+</body>
+</html>

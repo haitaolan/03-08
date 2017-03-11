@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //NaN 和自身是不等的。
+        console.log(NaN == NaN);   //false
+        console.log(NaN === NaN);  // false
+
+        console.log(+0 === -0);  //true
+
+        console.log(Object.is(+0,-0));   // false
+        console.log(Object.is(NaN,NaN));  // true
+
+    </script>
+</body>
+</html>

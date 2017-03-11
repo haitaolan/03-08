@@ -1,0 +1,280 @@
+1. README.md  -----> 包含了项目的信息以及用法
+2. .gitignore ----> 就包含了上传项目到git服务器上，哪些文件或者文件夹不需要上传
+3. .eslint...  ----> 用来配置eslint插件它的一些东西 (eslint是一个js代码规范的插件)
+
+
+版本控制管理工具:
+
+   svn(小乌龟)
+    我们的代码都在服务器上(代码一直是在服务器上的，并不存在电脑里面)
+
+    缺点： 如果服务器崩掉了，那么代码就不能查看或者修改或者提交
+            只能在公司修改，除公司以外就用不了
+
+
+            GUI操作界面
+
+
+git
+    我们的代码，每个人的电脑里面都有。然后服务器上是公共的。
+
+    优点： 无论是否在公司，都可以对代码进行提交，修改
+
+命令式的
+
+
+
+
+    git 配置(如果是第一安装，需要配置)：
+          git config --global user.name 用户名
+          git config --global user.email 邮箱地址
+
+          git config --global user.name 'ychow'
+          git config --global user.email 'yuanzhouxiao@foxmail.com'
+
+
+
+
+
+    git常用的几个命令：
+        1. 拉去远程项目到本地电脑(下载)
+            git clone 项目地址
+
+            比如： git clone https://github.com/ychow/githubTest.git
+
+
+        2. 就可以对本地电脑里面的项目进行，修改，编辑，删除。。。
+
+
+        3. 提交代码：
+                在添加前，先更新本地代码：
+                    git pull (更新本地代码，和远程服务器上的代码同步)
+
+
+                11) git add .  (把我们修改后的文件或者新添加的文件，添加到一个叫做缓存区里面去)
+                    . 表示所有的文件
+                    当然了也可以跟上某一个文件夹或者文件名。
+
+                22) git commit -m '注释的内容'
+
+                    对我们本次修改的代码，进行说明。
+                    比如： git commit -m '删掉Logo.html文件'
+
+                33) git push
+                    上传代码
+
+
+        分支(branch)：
+            master 主分支  (上面一般都存放的是稳定的版本)
+
+
+
+
+有一个项目：
+    4个前端同时开发(每个人自己开启一个分支)，写完之后，在合并分支
+
+git checkout '分知名'   -----> 切换分支
+
+
+
+合并分支，就是把分支的代码覆盖到master上面去
+
+
+首先要把当前的分支切换为master,才能合并分支到master.
+git merge '需要被合并的分知名'
+
+
+
+
+
+Svn使用方法：
+    1.下载远程项目到电脑
+        鼠标右键----> checkout
+    2.更改好代码后，要提交，鼠标右键，选择commit
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+Es6:
+    EcmaScript2015版本
+
+
+有一个编译工具： es6 ----> es5
+
+babel ----> http://babeljs.io/
+
+babel可以帮助我们把es6 ---> es5  并且还可以把 jsx(React的语法) ----> js
+
+
+    1. let
+        11) 用来定义变量
+        22) 没有预解析
+        33) 有块级作用域
+
+    2. const
+        11) 用来定义常量的
+        22） 也是有块级作用域
+
+    3. 字符串模板
+        `hello,${变量名}`
+        11) 可以保留我们写代码的格式 (pre标签)
+        22) 以变量名，把字符串拆分成数组。
+
+    4. 箭头函数(Arrow Function)
+        里面的this,它的指向不是看函数由谁调用的。而是看它在哪里定义的(它就指向在定义该函数时的上下文)。
+
+        如果里面语句只有一句，就可以不用写 {}
+        而且如果只有一句，不用写return.
+
+
+    5. es6对对象的改进
+
+    6. Object.is()
+        es5的时候，想要判断两个数据它的值是否相等：  == 和 ===
+
+        NaN == NaN
+        NaN === NaN
+
+        Object.is(v1,v2) 和 全等是差不多的，都是比较他们的值。
+        用来比较v1和v2他们的值是否相等。
+
+
+    7. Object.assign(目标对象，需要被合并的数据)
+        用来合并对象的。
+        Object.assing({},{"a":1,"b":2},{"b":3,"c":5});   // {"a":1,"b": 3,"c":5}
+
+        这样合并后，后面的b的值为3的会覆盖掉，前面的2
+
+
+    8. reset运算符(...)
+
+
+    9.解构赋值
+        按照一定的模式，来把对象或者数组里面的值，提出来。
+
+
+    10. Promise
+        是一种规范。是一种用来解决异步的方法。
+
+        jq里面的ajax
+        js里面的XMLHttpRequest
+
+        什么叫异步?  同时进行。。。
+        什么叫同步?  前面的进程需要完成，后面的任务，才能开始
+
+        var data = '';
+        $.ajax({
+            url: 'xxx',
+            success: function(res){
+                data = res;
+            }
+        });
+
+        console.log(data);
+
+
+
+        异步回调地狱
+
+
+
+            有3个接口
+                第一个接口需要的参数，需要现请求第二个接口，根据第二个接口返回过来的数据，然后传给第一个接口
+
+                $.ajax({
+                    url: '第一个接口的地址',
+                    success: function(res){
+                        $.ajax({
+                            url: '第二个接口的地址',
+                            success: function(res){
+
+                            }
+                        });
+                    }
+                });
+
+
+
+
+
+    11. fetch
+
+     文档： https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API
+
+        var xml = new XMLHttpRequest();
+        xml.open(GET/POST, url);
+        xml.onreadystatechange = function(){
+            if(xml.readyState == 4){
+                return
+            };
+
+            if(xml.status == 200){
+                console.log(this.response);
+            }
+        };
+        xml.responseType('json');
+        xml.setHeaderRequest('Content-Type','Application/json');
+        xml.send();
+
+
+    fetch(url).then(function(res){
+     return res.json();   // blob()  格式化二进制数据
+    }).then(function(res){
+        console.log(res);   // 这里才是真正的数据
+    }).catch(function(err){
+        console.log(err);   // 如果出错了，就执行这个方法。
+    })
+
+
+    12. 模块 (import / export )
+
+
+
+
+
+
+
+
+    ------------------------------------------------------------------------------
+    微信小程序开发文档： https://mp.weixin.qq.com/debug/wxadoc/dev/framework/MINA.html
+    接口大全： https://www.showapi.com/
+
+    
+    微信小程序
+        .js  脚本文件
+        .json  配置文件
+        .wxss  是一个样式文件  (css是一样的)
+
+        下面的三个文件都是全局的
+        app.wxss  全局样式
+        app.json  全局的配置文件
+        app.js   全局的Js脚本
+
+
+        app.json:
+
+        {
+            "pages":[   // 用来设置整个应用的需要显示的页面的路径
+                "pages/index/index",
+                "pages/logs/logs"
+            ],
+            "window":{
+                "backgroundTextStyle":"light",
+                "navigationBarBackgroundColor": "#fff",
+                "navigationBarTitleText": "WeChat",
+                "navigationBarTextStyle":"black"
+            }
+        }
+
+
+        不支持我们学过的Html标签
+
+
+        微信小程序里面，不会有跨域。！！！

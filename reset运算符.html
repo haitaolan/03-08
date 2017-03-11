@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // reset有点剩余的意思
+        var arr = [1,2,3];
+
+        var [first,...last] = arr;
+        console.log(first);
+        console.log(last);  //[2,3]
+
+        //求和
+        function sum(x,y,z){
+            return x + y + z;
+        };
+
+        console.log(sum(...arr));  // 6
+
+        console.log(...arr);   // 1 2 3  把arr的数组，拆分开
+    </script>
+</body>
+</html>

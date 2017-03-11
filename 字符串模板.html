@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+                            静夜思
+                    床前明月光，疑是地上霜。
+    </pre>
+    <script>
+        var greet = '欢迎';
+        var aa = '呵呵';
+        function tag(a,v1,v2){
+            console.log(a);  //  ["aaa", "你的到来,", "(*^__^*) 嘻嘻……"]
+            console.log(v1);  //'欢迎'
+            console.log(v2);  // '呵呵'
+        }
+        console.log(tag`aaa${greet}你的到来,${aa}(*^__^*) 嘻嘻……`);
+
+    </script>
+</body>
+</html>

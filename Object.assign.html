@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var obj1 = {
+            "a": 10,
+            "b": 2
+        };
+        var obj2 = {'d':3,'e':4};
+        var target = {};
+        var str = 'hello';
+
+        // Object.assign(target,obj1,obj2);
+        // console.log(target);  {a: 10, b: 2, d: 3, e: 4}
+
+
+    //    如果需要合并的数据是字符串，那么就会把字符串拆分成对象。
+        //如果合并的数据为数字，布尔值，那么无效。
+        Object.assign(target,str,99,100,true,false);
+        console.log(target);   //{0: "h", 1: "e", 2: "l", 3: "l", 4: "o"}
+    </script>
+
+</body>
+</html>

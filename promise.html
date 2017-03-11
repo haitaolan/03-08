@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //有3中状态： Pending(进行中) / resolve(完成)  / reject (失败)
+        // Pending ----> resolve
+        // Pending ----> reject
+
+        var promise = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(true){
+                    resolve('成功！')
+                }else{
+                    reject('失败')
+                }
+            },1000)
+        });
+
+
+        // promise.then(function(res){
+        //     //resolve
+        //     console.log(res,'haha')
+        // }, function(err){
+        //     //reject
+        //     console.log(err)
+        // })
+
+
+        promise.then(function(res){
+            console.log(res,'resolve方法');
+            return res;
+        }).then(function(res1){
+            //res1 它的值 是前一个函数return 的值
+            console.log(res1);
+
+        }).catch(function(err){
+            console.log(new Error(err), 'reject方法')
+        })
+    </script>
+</body>
+</html>

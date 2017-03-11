@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //函数的长度？
+        // 函数的长度就是形参的个数
+        // var fnLength = (function aa(a,b,c){
+        //     alert('hhh')
+        // }).length;
+        //
+        // console.log(fnLength);   //0
+
+
+        //函数的默认值?
+
+        //es5:
+        // function Alert(name,content){
+        //     name = name || '默认的';
+        //     content = content || '默认的内容';
+        //
+        //
+        //     alert(`名字是${name},内容为${content}`);
+        // };
+        //
+        // Alert('穿进去的');
+
+
+        //es6:
+        //给参数设置默认值
+        function Alert(name = '默认的名字',content = '默认的内容',cc){
+            alert(`名字是${name},内容为${content}CC是${cc}`);
+        }
+        Alert('穿进去的','fdfd','ererer');
+
+
+
+        //如果给函数参数通过es6设置默认值，那么计算函数的长度将会忽略掉它。
+        //如果参数放在了给了默认值的参数后面，那么计算长度也会忽略掉。
+        console.log((function Alert(aa,name = '默认的名字',content = '默认的内容',bb){
+            alert(`名字是${name},内容为${content}`);
+        }).length);   //1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
